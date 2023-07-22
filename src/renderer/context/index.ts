@@ -1,11 +1,13 @@
-import { createSVGElement } from './src/createSVGElement'
-import { nodeMount } from './src/nodeMount'
+import { createSVGElement } from '../utils/createSVGElement'
+import { nodeMount } from '../utils/nodeMount'
+
+export type Context = ReturnType<typeof createContext>
 
 export function createContext(width: number, height: number) {
   // 创建画布svg节点
   const svgEle = createSVGElement('svg')
-  svgEle.setAttribute('width', width)
-  svgEle.setAttribute('height', height)
+  svgEle.setAttribute('width', width + '')
+  svgEle.setAttribute('height', height + '')
   svgEle.setAttribute('viewBox', `0 0 ${width} ${height}`)
 
   // 创建挂载g节点，并且把该g节点挂载到 svg 节点上
